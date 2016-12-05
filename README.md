@@ -2,6 +2,14 @@
 
 Like async/await implementation using by Generator.
 
+## Install
+
+```
+npm install aa-like
+```
+
+https://www.npmjs.com/package/aa-like
+
 ## Example
 
 ```js
