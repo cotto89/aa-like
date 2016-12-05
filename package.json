@@ -1,0 +1,48 @@
+{
+  "name": "aa-like",
+  "description": "Like async/await implementation using by Generator",
+  "version": "0.0.1",
+  "author": "cotto",
+  "bugs": {
+    "url": "https://github.com/cotto89/aa-like/issues"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.33",
+    "@types/node": "^6.0.46",
+    "@types/power-assert": "^1.4.29",
+    "@types/sinon": "^1.16.32",
+    "espower-typescript": "^6.0.1",
+    "mocha": "^3.2.0",
+    "npm-run-all": "^3.1.2",
+    "power-assert": "^1.4.2",
+    "rimraf": "^2.5.4",
+    "sinon": "^1.17.6",
+    "ts-loader": "^1.2.2",
+    "tslint": "^4.0.2",
+    "typescript": "^2.0.10"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENCE"
+  ],
+  "keywords": [
+    "async-await",
+    "generator"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cotto89/aa-like.git"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:src": "tsc",
+    "clean": "npm-run-all clean:** -p",
+    "clean:dist": "rimraf ./dist",
+    "lint": "tslint src/**/*.ts",
+    "test": "NODE_ENV=test mocha"
+  },
+  "types": "dist/index.d.ts"
+}
