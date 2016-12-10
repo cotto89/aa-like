@@ -1,8 +1,11 @@
-export default function control<T, U>(block: (value: T) => IterableIterator<U>) {
-    return function processor(src: T) {
+function control<A, R>(block: () => IterableIterator<R>): () => R;
+function control<A, R>(block: (a: A) => IterableIterator<R>): (arg: A) => R;
+function control<A, R, T extends (a: A) => IterableIterator<R>>(block: T) {
+
+    return function processor(src?: any) {
         const g = block(src as any);
 
-        const next = (value?: any): Promise<U> => {
+        const next = (value?: any): Promise<R> => {
             const state = g.next(value);
 
             if (!state.done) {
@@ -15,3 +18,5 @@ export default function control<T, U>(block: (value: T) => IterableIterator<U>) 
         return next();
     };
 }
+
+export default control;
