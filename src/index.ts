@@ -1,6 +1,6 @@
-export default function control<T, U>(gen: (value?: T) => IterableIterator<U>) {
-    return function processor(src?: T) {
-        const g = gen(src);
+export default function control<T, U>(block: (value: T) => IterableIterator<U>) {
+    return function processor(src: T) {
+        const g = block(src as any);
 
         const next = (value?: any): Promise<U> => {
             const state = g.next(value);
@@ -15,4 +15,3 @@ export default function control<T, U>(gen: (value?: T) => IterableIterator<U>) {
         return next();
     };
 }
-

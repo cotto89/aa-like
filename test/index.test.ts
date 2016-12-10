@@ -7,7 +7,7 @@ function* gen(n: number) {
     return n2.reduce((x, y) => x + y);
 }
 
-it('return promise<any>', async () => {
+it('return promise<number>', async () => {
     const flow = ctrl(gen);
 
     const promise = flow(1);
