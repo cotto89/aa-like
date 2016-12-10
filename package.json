@@ -1,7 +1,7 @@
 {
   "name": "aa-like",
   "description": "Like async/await implementation using by Generator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "cotto",
   "bugs": {
     "url": "https://github.com/cotto89/aa-like/issues"
