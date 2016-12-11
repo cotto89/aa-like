@@ -1,7 +1,7 @@
 "use strict";
-function control(gen) {
+function control(block) {
     return function processor(src) {
-        const g = gen(src);
+        const g = block(src);
         const next = (value) => {
             const state = g.next(value);
             if (!state.done) {
