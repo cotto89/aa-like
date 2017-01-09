@@ -1,6 +1,6 @@
 # aa-like
 
-Like async/await implementation using by Generator.
+async/await like implementation using by Generator.
 
 ## Install
 
