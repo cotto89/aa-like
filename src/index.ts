@@ -1,11 +1,12 @@
-function control<A, R>(block: () => IterableIterator<R>): () => R;
-function control<A, R>(block: (a: A) => IterableIterator<R>): (arg: A) => R;
-function control<A, R, T extends (a: A) => IterableIterator<R>>(block: T): (arg: A) => R {
+export function aa<A>(block: () => IterableIterator<any>): () => Promise<any>;
+export function aa<A>(block: (a: A) => IterableIterator<any>): (arg: A) => Promise<any>;
+export function aa<A1, A2>(block: (a1: A1, a2: A2) => IterableIterator<any>): (a1: A1, a2: A2) => Promise<any>;
+export function aa(block: Function) {
 
-    return function processor(src?: any): any {
-        const g = block(src as any);
+    return function processor(...arg: any[]): Promise<any> {
+        const g = block(...arg);
 
-        const next = (value?: any): Promise<R> => {
+        const next = (value?: any): Promise<any> => {
             const state = g.next(value);
 
             if (!state.done) {
@@ -19,4 +20,4 @@ function control<A, R, T extends (a: A) => IterableIterator<R>>(block: T): (arg:
     };
 }
 
-export default control;
+export default aa;

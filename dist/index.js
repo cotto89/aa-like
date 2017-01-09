@@ -1,7 +1,7 @@
 "use strict";
-function control(block) {
-    return function processor(src) {
-        const g = block(src);
+function aa(block) {
+    return function processor(...arg) {
+        const g = block(...arg);
         const next = (value) => {
             const state = g.next(value);
             if (!state.done) {
@@ -12,6 +12,7 @@ function control(block) {
         return next();
     };
 }
+exports.aa = aa;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = control;
+exports.default = aa;
 //# sourceMappingURL=index.js.map

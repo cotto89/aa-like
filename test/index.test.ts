@@ -1,19 +1,19 @@
 import * as assert from 'power-assert';
-import ctrl from './../src/index';
+import aa from './../src/index';
 
 function* gen(n: number) {
     const n1: number = yield Promise.resolve(n + 10);
     const n2: [number, number] = yield Promise.all([n1 + 10, n1 + 10]);
-    return n2.reduce((x, y) => x + y);
+    return n2.reduce((x, y) => x + y) + '';
 }
 
 it('return promise<number>', async () => {
-    const flow = ctrl(gen);
+    const ps = aa(gen);
 
-    const promise = flow(1);
+    const promise = ps(1);
     const result = await Promise.resolve(promise);
 
     assert(promise instanceof Promise);
-    assert.equal(result, 42);
+    assert.equal(result, '42');
 });
 
